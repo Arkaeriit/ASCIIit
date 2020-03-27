@@ -11,11 +11,14 @@ main.o : main.c main.h
 test.o : test.c
 	gcc -c test.c $(FLAGS) -o test.o
 
-test.bin : test.o boolArrayList.o 
-	gcc boolArrayList.o test.o  $(FLAGS) -o test.bin
+ASCIIit.o : ASCIIit.c ASCIIit.h
+	gcc -c ASCIIit.c $(FLAGS) -o ASCIIit.o
 
-ASCIIit.bin : main.o boolArrayList.o 
-	gcc boolArrayList.o morseZipConvert.o $(FLAGS) -o morseZip.bin
+test.bin : test.o boolArrayList.o  ASCIIit.o
+	gcc boolArrayList.o test.o ASCIIit.o $(FLAGS) -o test.bin
+
+ASCIIit.bin : main.o boolArrayList.o ASCIIit.o
+	gcc boolArrayList.o morseZipConvert.o ASCIIit.o $(FLAGS) -o morseZip.bin
 
 test : test.bin
 	touch in1 #a file named in1 is needed for the test
