@@ -12,6 +12,7 @@
 #define PREFIX "0100"
 
 char* Ai_ASCIIchar(char c);
+char Ai_deASCIIchar(const char* str);
 
 #endif
 

@@ -1,4 +1,5 @@
 #include "boolArrayList.h"
+#include "ASCIIit.h"
 
 int main(){
     boolArrayList* file = bal_readFile("in1");
@@ -20,6 +21,13 @@ int main(){
     boolArrayList* sTT = bal_stringToBal("ab", 2);
     boolArrayList* sBB = bal_subBal(sTT, 8, 15);
     bal_writeFile(sBB, "/dev/stdout");
+    printf("\n");
+
+    char c = '*';
+    char* cc = Ai_ASCIIchar(c);
+    printf("%c%c\n",cc[0],cc[1]);
+    printf("%c\n",Ai_deASCIIchar(cc));
+
     return 0;
 }
 
