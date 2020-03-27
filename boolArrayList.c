@@ -158,12 +158,12 @@ void bal_completeTo8(boolArrayList* bal){
  *      copied
  *  error:
  *      If the bondaries are not correctely defined an error message
- *      will be displayed and the program will stop with exitcode 66
+ *      will be displayed and the program will stop with exitcode 67
  */
 boolArrayList* bal_subBal(const boolArrayList* bal, uint64_t a, uint64_t b){
     if( a < 0 || b < a || b >= bal->length ){
        fprintf(stderr, "Error while trying to get a substring.\n");
-       exit(66);
+       exit(67);
     } 
     boolArrayList* ret = bal_init();
     ret->length = b - a + 1;

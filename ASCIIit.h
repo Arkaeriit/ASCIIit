@@ -7,6 +7,7 @@
 #define ASCIIIT
 
 #include <stdlib.h>
+#include <stdio.h>
 #include "boolArrayList.h"
 
 #define PREFIX "0100"

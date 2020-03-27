@@ -18,7 +18,7 @@ test.bin : test.o boolArrayList.o  ASCIIit.o
 	gcc boolArrayList.o test.o ASCIIit.o $(FLAGS) -o test.bin
 
 ASCIIit.bin : main.o boolArrayList.o ASCIIit.o
-	gcc boolArrayList.o morseZipConvert.o ASCIIit.o $(FLAGS) -o morseZip.bin
+	gcc main.o boolArrayList.o ASCIIit.o $(FLAGS) -o ASCIIit.bin
 
 test : test.bin
 	touch in1 #a file named in1 is needed for the test
