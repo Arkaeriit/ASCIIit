@@ -29,6 +29,7 @@ int main(){
     printf("%c\n",Ai_deASCIIchar(cc));
 
     Ai_ASCIIcharFile("in1","out6");
+    Ai_deASCIIcharFile("out6","out7");
     return 0;
 }
 

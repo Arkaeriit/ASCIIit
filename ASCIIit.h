@@ -15,5 +15,6 @@ char* Ai_ASCIIchar(char c);
 char Ai_deASCIIchar(const char* str);
 
 void Ai_ASCIIcharFile(const char* in, const char* out);
+void Ai_deASCIIcharFile(const char* in, const char* out);
 #endif
 

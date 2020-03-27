@@ -71,12 +71,45 @@ void Ai_ASCIIcharFile(const char* in, const char* out){
         int c = fgetc(fin);
         if(c != 0xFFFFFFFF){
             char* toFout = Ai_ASCIIchar(c);
-            printf("%c %x %c%c\n",c,c, toFout[0], toFout[1]);
             fwrite(toFout, 2, 1, fout);
             free(toFout);
         }
     }
     fclose(fin);
     fclose(fout);
+}
+
+/*
+ * Take a file, deASCIIchar all of its content and put the result
+ * in a second file
+ *  Arguments:
+ *      file_in : the input file
+ *      file_out : the output file
+ *  errors:
+ *      If the input file can't be opened an error message will
+ *      be printed and the program will stop with exit code 61
+ *      If the output file can't be opened an error message will
+ *      be printed and the program will stop with exit code 63
+ */
+void Ai_deASCIIcharFile(const char* in, const char* out){
+    FILE *fin, *fout; //We oppen the files
+    if( (fin = fopen(in,"r")) == NULL) {
+        fprintf(stderr, "Error : impossible to read the file : %s\n", in);
+        exit(61);
+    }
+    if( (fout = fopen(out,"w")) == NULL) {
+        fprintf(stderr, "Error : impossible to open the file : %s\n", out);
+        exit(63);
+    }
+    char* buff = malloc(2);
+    while(!feof(fin)){
+        size_t len = fread(buff, 2, 1, fin);
+        if(len == 1){
+            char c = Ai_deASCIIchar(buff);
+            fputc(c, fout);
+        }
+    }
+    free(fin);
+    free(fout);
 }
 
