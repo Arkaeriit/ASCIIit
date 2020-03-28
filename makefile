@@ -29,3 +29,9 @@ clean :
 	rm -f *.bin
 	rm -f out*
 
+install :
+	cp -f ASCIIit.bin /usr/local/bin/asciiit
+
+uninstall :
+	rm -r /usr/local/bin/asciiit
+
