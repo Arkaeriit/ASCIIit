@@ -101,15 +101,18 @@ void Ai_deASCIIcharFile(const char* in, const char* out){
         fprintf(stderr, "Error : impossible to open the file : %s\n", out);
         exit(63);
     }
+    int i=0;
     char* buff = malloc(2);
     while(!feof(fin)){
+        i++;
         size_t len = fread(buff, 2, 1, fin);
         if(len == 1){
-            char c = Ai_deASCIIchar(buff);
+            int c = Ai_deASCIIchar(buff);
             fputc(c, fout);
         }
     }
-    free(fin);
-    free(fout);
+    free(buff);
+    fclose(fin);
+    fclose(fout);
 }
 
